@@ -28,7 +28,7 @@
 </script>
 
 <main>
-  <h1>Helping Hand</h1>
+  <h1>Mathx</h1>
   <div id="toc">
     <h2>Table of Contents</h2>
     <ol>
