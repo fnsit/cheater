@@ -6,6 +6,9 @@
 
   let sa: number, sb: number, sn: number;
   let gsn: number, gsa: number, gsr: number, g_un1: number, g_un2: number;
+  let td1n: number = 5,
+    td1a: number = 2,
+    td1un: number = 162;
 
   function n(a: number, b: number, n: number) {
     return a + (n - 1) * b;
@@ -27,10 +30,17 @@
     return n_ * ((a + n(a, b, n_)) / 2);
   }
   function geo_s(a: number, n: number, r: number) {
-    return (a * (r ** n - 1)) / (r > 1 ? r - 1 : 1 - r);
+    if (r > 1) return (a * (r ** n - 1)) / (r - 1);
+    if (r < 1) return (a * (1 - r ** n)) / (1 - r);
+    else return NaN;
   }
 
-  console.log(s(1, 1, 3));
+  function tdq_1(n: number, a: number, un: number) {
+    let r = Math.pow(un / a, 1 / (n - 1));
+    return geo_s(a, n, r);
+  }
+
+  console.log(tdq_1(5, 2, 162));
 </script>
 
 <main>
@@ -193,11 +203,24 @@
   <h1 id="tdq">Too detailed question</h1>
   <div id="tdq-tali">
     <p>
-      Sebuah tali dibagi menjadi <input type="number" class="mini" /> bagian
-      sehingga bagian-bagian tersebut membentuk deret geometri. Jika panjang
-      tali terpendek adalah <input type="number" class="mini" /> dan yang
-      terpanjang adalah <input type="number" class="mini" />, tentukan panjang
+      Sebuah tali dibagi menjadi <input
+        bind:value={td1n}
+        type="number"
+        class="mini"
+      />
+      bagian sehingga bagian-bagian tersebut membentuk deret geometri. Jika panjang
+      tali terpendek adalah
+      <input bind:value={td1a} type="number" class="mini" />
+      dan yang terpanjang adalah
+      <input bind:value={td1un} type="number" class="mini" />, tentukan panjang
       tali semula
+    </p>
+    <p>
+      {typeof td1n === "undefined" ||
+      typeof td1a === "undefined" ||
+      typeof td1un === "undefined"
+        ? "result goes here"
+        : tdq_1(td1n, td1a, td1un)}
     </p>
   </div>
 </main>
