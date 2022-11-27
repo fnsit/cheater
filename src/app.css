@@ -7,10 +7,18 @@ main {
     margin-left: 1em;
 }
 
-ol {
+ol.roman {
     list-style-type: upper-roman;
+}
+
+ol.alpha {
+    list-style: upper-alpha;
 }
 
 #toc {
     max-height: 512px;
+}
+
+input.mini {
+    width: 1.5em;
 }
