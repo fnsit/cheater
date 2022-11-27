@@ -202,6 +202,7 @@
   <hr />
   <h1 id="tdq">Too detailed question</h1>
   <div id="tdq-tali">
+    <h2>Perkara Tali</h2>
     <p>
       Sebuah tali dibagi menjadi <input
         bind:value={td1n}
