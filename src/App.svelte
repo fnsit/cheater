@@ -4,7 +4,7 @@
   let sqn: number, trn: number, rcn: number;
   let gn: number, ga: number, un1: number, un2: number, gr: number;
 
-  let sa: number, sb: number, sn: number;
+  let sa: number, sb: number, sn: number, fin: number;
   let gsn: number, gsa: number, gsr: number, g_un1: number, g_un2: number;
   let td1n: number = 5,
     td1a: number = 2,
@@ -22,6 +22,10 @@
   function triangle_n(n: number) {
     return rect_n(n) / 2;
   }
+  function fib_n(n: number) {
+    const co = 2.23606797749979;
+    return Math.round((((1 + co) / 2) ** n - ((1 - co) / 2) ** n) / co);
+  }
   function geo_n(a: number, n: number, r: number) {
     return a * r ** (n - 1);
   }
@@ -36,11 +40,9 @@
   }
 
   function tdq_1(n: number, a: number, un: number) {
-    let r = Math.pow(un / a, 1 / (n - 1));
+    let r = (un / a) ** (1 / (n - 1));
     return geo_s(a, n, r);
   }
-
-  console.log(tdq_1(5, 2, 162));
 </script>
 
 <main>
@@ -49,20 +51,35 @@
     <h2>Table of Contents</h2>
     <ol class="alpha">
       <li>
-        <a href="#nth-finder">n-th finder</a>
+        <a href="#nth-finder">Pencari n</a>
         <ol class="roman">
-          <li><a href="#reg-nth-finder">Regular n-th finder</a></li>
-          <li><a href="#sqr-nth-finder">Square n-th finder</a></li>
-          <li><a href="#rct-nth-finder">Rectangle n-th finder</a></li>
-          <li><a href="#tri-nth-finder">Triangle n-th finder</a></li>
-          <li><a href="#geo-nth-finder">Geometry n-th finder</a></li>
+          <li><a href="#reg-nth-finder">Pencari n</a></li>
+          <li>
+            <a href="#sqr-nth-finder">Pencari n (Pola bilangan persegi)</a>
+          </li>
+          <li>
+            <a href="#rct-nth-finder"
+              >Pencari n (Pola bilangan persegi panjang)</a
+            >
+          </li>
+          <li>
+            <a href="#tri-nth-finder">Pencari n (Pola bilangan segitiga)</a>
+          </li>
+          <li>
+            <a href="#geo-nth-finder">Pencari n (Pola bilangan geometri)</a>
+          </li>
+          <li>
+            <a href="#fib-nth-finder">Pencari n (Pola bilangan Fibonacci)</a>
+          </li>
         </ol>
       </li>
       <li>
-        <a href="#s-finder">sum finder</a>
+        <a href="#s-finder">Pencari s</a>
         <ol class="roman">
-          <li><a href="#reg-s-finder">Regular sum finder</a></li>
-          <li><a href="#geo-s-finder">Geometry sum finder</a></li>
+          <li><a href="#reg-s-finder">Pencari s</a></li>
+          <li>
+            <a href="#geo-s-finder">Pencari s (Pola bilangan geometri)</a>
+          </li>
         </ol>
       </li>
       <li>
@@ -76,9 +93,10 @@
   <input type="checkbox" name="with-r" bind:checked={with_r} />
   <label for="with-r">with r</label>
   <hr />
-  <h1 id="nth-finder">n-th finder</h1>
+  <a href="#toc">Go Back</a>
+  <h1 id="nth-finder">Pencari n</h1>
   <div id="reg-nth-finder">
-    <h2>Regular n-th finder</h2>
+    <h2>Pencari n</h2>
     <p>
       {typeof ra === "undefined" ||
       typeof rb === "undefined" ||
@@ -94,25 +112,25 @@
     <input type="number" bind:value={rn} />
   </div>
   <div id="sqr-nth-finder">
-    <h2>Square n-th finder</h2>
+    <h2>Pencari n (Pola bilangan persegi)</h2>
     <p>{typeof sqn === "undefined" ? "result goes here" : square_n(sqn)}</p>
     <h3>n</h3>
     <input type="number" bind:value={sqn} />
   </div>
   <div id="rct-nth-finder">
-    <h2>Rectangle n-th finder</h2>
+    <h2>Pencari n (Pola bilangan persegi panjang)</h2>
     <p>{typeof rcn === "undefined" ? "result goes here" : rect_n(rcn)}</p>
     <h3>n</h3>
     <input type="number" bind:value={rcn} />
   </div>
   <div id="tri-nth-finder">
-    <h2>Triangle n-th finder</h2>
+    <h2>Pencari n (Pola bilangan segitiga)</h2>
     <p>{typeof trn === "undefined" ? "result goes here" : triangle_n(trn)}</p>
     <h3>n</h3>
     <input type="number" bind:value={trn} />
   </div>
   <div id="geo-nth-finder">
-    <h2>Geometry n-th finder</h2>
+    <h2>Pencari n (Pola bilangan geometri)</h2>
     {#if with_r}
       <p>
         {typeof ga === "undefined" ||
@@ -146,10 +164,17 @@
       <input type="number" bind:value={un2} />
     {/if}
   </div>
+  <div id="fib-nth-finder">
+    <h2>Pencari n (Pola bilangan Fibonacci)</h2>
+    <p>{typeof fin === "undefined" ? "result goes here" : fib_n(fin)}</p>
+    <h3>n</h3>
+    <input type="number" bind:value={fin} />
+  </div>
   <hr />
-  <h1 id="s-finder">sum finder</h1>
+  <a href="#toc">Go Back</a>
+  <h1 id="s-finder">Pencari s</h1>
   <div id="reg-s-finder">
-    <h2>Regular sum finder</h2>
+    <h2>Regular Pencari s</h2>
     <p>
       {typeof sa === "undefined" ||
       typeof sb === "undefined" ||
@@ -165,7 +190,7 @@
     <input type="number" bind:value={sn} />
   </div>
   <div id="geo-s-finder">
-    <h2>Geometry sum finder</h2>
+    <h2>Geometry Pencari s</h2>
     {#if with_r}
       <p>
         {typeof gsa === "undefined" ||
@@ -200,6 +225,7 @@
     {/if}
   </div>
   <hr />
+  <a href="#toc">Go Back</a>
   <h1 id="tdq">Too detailed question</h1>
   <div id="tdq-tali">
     <h2>Perkara Tali</h2>
@@ -221,7 +247,7 @@
       typeof td1a === "undefined" ||
       typeof td1un === "undefined"
         ? "result goes here"
-        : tdq_1(td1n, td1a, td1un)}
+        : `Jawab: ${tdq_1(td1n, td1a, td1un)}`}
     </p>
   </div>
 </main>

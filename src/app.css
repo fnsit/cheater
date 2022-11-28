@@ -11,6 +11,10 @@ main {
     margin-left: 1em;
 }
 
+hr {
+    margin: 1em;
+}
+
 ol.roman {
     list-style-type: upper-roman;
 }
