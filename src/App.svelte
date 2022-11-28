@@ -174,7 +174,7 @@
   <a href="#toc">Go Back</a>
   <h1 id="s-finder">Pencari s</h1>
   <div id="reg-s-finder">
-    <h2>Regular Pencari s</h2>
+    <h2>Pencari s</h2>
     <p>
       {typeof sa === "undefined" ||
       typeof sb === "undefined" ||
@@ -190,7 +190,7 @@
     <input type="number" bind:value={sn} />
   </div>
   <div id="geo-s-finder">
-    <h2>Geometry Pencari s</h2>
+    <h2>Pencari s (Pola bilangan geometri)</h2>
     {#if with_r}
       <p>
         {typeof gsa === "undefined" ||
