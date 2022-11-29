@@ -1,8 +1,11 @@
 <script lang="ts">
+  import { Vector2 } from "./vector";
+
   let with_r = true;
   let rn: number, ra: number, rb: number;
   let sqn: number, trn: number, rcn: number;
   let gn: number, ga: number, un1: number, un2: number, gr: number;
+  let grx1: number, gry1: number, grx2: number, gry2: number;
 
   let sa: number, sb: number, sn: number, fin: number;
   let gsn: number, gsa: number, gsr: number, g_un1: number, g_un2: number;
@@ -80,6 +83,12 @@
           <li>
             <a href="#geo-s-finder">Pencari s (Pola bilangan geometri)</a>
           </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#lines">Garis</a>
+        <ol class="roman">
+          <li><a href="#gradient-finder">Pencari gradien</a></li>
         </ol>
       </li>
       <li>
@@ -223,6 +232,27 @@
       <h3>Un 2</h3>
       <input type="number" bind:value={g_un2} />
     {/if}
+  </div>
+  <hr />
+  <a href="#toc">Go Back</a>
+  <h1 id="lines">Garis</h1>
+  <div id="gradient-finder">
+    <p>
+      {grx1 === undefined ||
+      grx2 === undefined ||
+      gry1 === undefined ||
+      gry2 === undefined
+        ? "result goes here"
+        : new Vector2(grx1, gry1).gradient_to(new Vector2(grx2, gry2))}
+    </p>
+    <h3>x1</h3>
+    <input type="number" bind:value={grx1} />
+    <h3>y1</h3>
+    <input type="number" bind:value={gry1} />
+    <h3>x2</h3>
+    <input type="number" bind:value={grx2} />
+    <h3>y2</h3>
+    <input type="number" bind:value={gry2} />
   </div>
   <hr />
   <a href="#toc">Go Back</a>
