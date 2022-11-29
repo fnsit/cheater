@@ -49,6 +49,10 @@
   }
 </script>
 
+<nav class="tp">
+  <h1>Itsfun</h1>
+</nav>
+
 <main>
   <h1>Mathx</h1>
   <div id="toc">
@@ -297,3 +301,7 @@
     </p>
   </div>
 </main>
+
+<nav class="bt">
+  <h1>Hifzon</h1>
+</nav>

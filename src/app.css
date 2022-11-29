@@ -7,6 +7,25 @@ p, a, label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+nav.bt {
+    color: white;
+    background-color: #dc00d1;
+}
+
+nav.tp {
+    color: black;
+    background-color: #70f65c;
+}
+
+nav > h1 {
+    font-family: 'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+    text-align: center;
+}
+
 main {
     margin-left: 1em;
 }
