@@ -239,6 +239,7 @@
   <a href="#toc">Go Back</a>
   <h1 id="other">Lainnya</h1>
   <div id="gradient-finder">
+    <h2>Pencari gradien</h2>
     <p>
       {grx1 === undefined ||
       grx2 === undefined ||
