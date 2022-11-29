@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { Vector2 } from "./vector";
+  import { Fraction, Vector2 } from "./math";
 
   let with_r = true;
   let rn: number, ra: number, rb: number;
   let sqn: number, trn: number, rcn: number;
   let gn: number, ga: number, un1: number, un2: number, gr: number;
   let grx1: number, gry1: number, grx2: number, gry2: number;
+  let fr1: number, fr2: number;
 
   let sa: number, sb: number, sn: number, fin: number;
   let gsn: number, gsa: number, gsr: number, g_un1: number, g_un2: number;
@@ -86,9 +87,10 @@
         </ol>
       </li>
       <li>
-        <a href="#lines">Garis</a>
+        <a href="#other">lainnya</a>
         <ol class="roman">
           <li><a href="#gradient-finder">Pencari gradien</a></li>
+          <li><a href="#fraction-simplifier">Penyederhana pecahan</a></li>
         </ol>
       </li>
       <li>
@@ -235,7 +237,7 @@
   </div>
   <hr />
   <a href="#toc">Go Back</a>
-  <h1 id="lines">Garis</h1>
+  <h1 id="other">Lainnya</h1>
   <div id="gradient-finder">
     <p>
       {grx1 === undefined ||
@@ -253,6 +255,19 @@
     <input type="number" bind:value={grx2} />
     <h3>y2</h3>
     <input type="number" bind:value={gry2} />
+  </div>
+  <div id="fraction-simplifier">
+    <h2>Penyederhana pecahan</h2>
+    <p>
+      {typeof fr1 === "undefined" || typeof fr2 === "undefined"
+        ? "result goes here"
+        : `${new Fraction(fr1, fr2).simplify().nominator}/${
+            new Fraction(fr1, fr2).simplify().denominator
+          }`}
+    </p>
+    <input type="number" bind:value={fr1} />
+    <p>/</p>
+    <input type="number" bind:value={fr2} />
   </div>
   <hr />
   <a href="#toc">Go Back</a>
