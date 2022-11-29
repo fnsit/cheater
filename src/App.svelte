@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Fraction, Vector2 } from "./math";
+  import { Fraction, Vector2, GCD } from "./math";
 
   let with_r = true;
   let rn: number, ra: number, rb: number;
@@ -264,7 +264,7 @@
         ? "result goes here"
         : `${new Fraction(fr1, fr2).simplify().nominator}/${
             new Fraction(fr1, fr2).simplify().denominator
-          }`}
+          }\ngcd = ${GCD(fr1, fr2)}`}
     </p>
     <input type="number" bind:value={fr1} />
     <p>/</p>
