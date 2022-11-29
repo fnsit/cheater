@@ -49,3 +49,7 @@ ol.alpha {
 input.mini {
     width: 5em;
 }
+
+input {
+    border-radius: 0.5em;
+}
